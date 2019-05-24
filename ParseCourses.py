@@ -19,12 +19,13 @@ class Course:
         self.reccomendations = []
         self.notes = []
         self.learnHours = 0
-
+#[a-zA-Z\\s]+
 
 def parseList(fName):
     f = open(fName, 'r', encoding='utf-8')
     text = ''.join(f.readlines())
-    courses = re.split("[\n]([A-Z]{4} \d{3}/\d.0)", text,)
+    #courses = re.split("[\n]([A-Z]{4} \d{3}/[\d]{1,2}.0    [a-zA-Z\\s]+)[\n]", text, )
+    courses = re.split("(LEARNING HOURS|[A-Z]{5,}|NOTE)", text)
 
     #for course in courses:
         #print(course)
@@ -34,7 +35,7 @@ def parseList(fName):
     return courses
 
 def parseCourse(course):
-    print(course[:4])
+    print(course)
     # cName = course[0:4]
     # cNum = course[5:8]
     # print(cName)
